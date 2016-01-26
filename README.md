@@ -31,6 +31,7 @@ rough priority order):
 * [Referring to self](#referring-to-self)
 * [Structs vs Classes](#structs-vs-classes)
 * [Parameterized Types](#parameterized-types)
+* [Closure Expressions](#closure-expressions)
 * [Operator Definitions](#operator-definitions)
 * [Functions](#functions)
 
@@ -414,6 +415,48 @@ struct Composite<T> {
 ```
 
 _Rationale:_ Omitting redundant type parameters clarifies the intent, and makes it obvious by contrast when the returned type takes different type parameters.
+
+#### Closure Expressions
+
+Use trailing closure syntax only if there's a single closure expression parameter at the end of the argument list. Give the closure parameters descriptive names.
+
+**Preferred:**
+```swift
+UIView.animateWithDuration(1.0) {
+  self.myView.alpha = 0
+}
+
+UIView.animateWithDuration(1.0,
+  animations: {
+    self.myView.alpha = 0
+  },
+  completion: { finished in
+    self.myView.removeFromSuperview()
+  }
+)
+```
+
+**Not Preferred:**
+```swift
+UIView.animateWithDuration(1.0, animations: {
+  self.myView.alpha = 0
+})
+
+UIView.animateWithDuration(1.0,
+  animations: {
+    self.myView.alpha = 0
+  }) { f in
+    self.myView.removeFromSuperview()
+}
+```
+
+For single-expression closures where the context is clear, use implicit returns:
+
+```swift
+attendeeList.sort { a, b in
+  a > b
+}
+```
 
 ####Operator Definitions
 
