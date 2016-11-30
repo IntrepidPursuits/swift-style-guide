@@ -566,7 +566,7 @@ let layout = { (view1: UIView, view2: UIView) in
 
 ###Void arguments/return types
 
-It is preferable to not use Void in closure arguments or return types, omitting parentheses where possible.
+It is preferable to not use `Void` in closure arguments or return types, omitting parentheses where possible.
 
 #####Like this:
 ```Swift
@@ -581,6 +581,25 @@ let noArgNoReturnClosure = { (Void) -> Void in doSomething() } // don't do this
 let noArgClosure = { (Void) -> Int in return getValue() } // don't do this
 let noReturnClosure = { (arg) -> Void in doSomething(with: arg) } // don't do this
 ```
+
+However, when defining closure type, `Void` is preferred to `()`
+
+#####Like this:
+```Swift
+typealias NoArgNoReturnClosure = Void -> Void
+typealias NoArgClosure = Void -> Int
+typealias NoReturnClosure = Int -> Void
+```
+
+#####Not this:
+```Swift
+typealias NoArgNoReturnClosure = () -> ()
+typealias NoArgClosure = () -> Int
+typealias NoReturnClosure = Int -> ()
+```
+
+
+
 ###Shorthand
 
 Shorthand argument syntax should only be used in closures that can be understood in a few lines.  In other situations, declaring a variable that helps identify the underlying value is preferred.
