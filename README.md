@@ -575,7 +575,7 @@ let noArgClosure = { () -> Int in return getValue() } // void argument, use '()'
 let noReturnClosure = { (arg) in doSomething(with: arg) } // void return type, omit return type
 ```
 
-#####Not this:
+######Not this:
 ```Swift
 let noArgNoReturnClosure = { (Void) -> Void in doSomething() } // don't do this
 let noArgClosure = { (Void) -> Int in return getValue() } // don't do this
@@ -591,7 +591,7 @@ typealias NoArgClosure = Void -> Int
 typealias NoReturnClosure = Int -> Void
 ```
 
-#####Not this:
+######Not this:
 ```Swift
 typealias NoArgNoReturnClosure = () -> ()
 typealias NoArgClosure = () -> Int
