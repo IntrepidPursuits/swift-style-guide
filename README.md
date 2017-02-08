@@ -404,6 +404,20 @@ if let foo = foo {
 }
 ```
 
+Or when unwrapping multiple optionals, prefer this:
+
+```swift
+if 
+    let foo = foo,
+    let bar = bar {
+    	// Indent once more to use `foo` and `bar` to show a new scope
+        foo.bizz()
+        bar.bazz()
+} else {
+    // If appropriate, handle the case where the optional is nil
+}
+```
+
 **_Rationale:_** Explicit `if let`-binding of optionals results in safer code. Force unwrapping is more prone to lead to runtime crashes.
 
 ### Optional Chaining
