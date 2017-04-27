@@ -407,12 +407,11 @@ if let foo = foo {
 Or when unwrapping multiple optionals, prefer this:
 
 ```swift
-if 
-    let foo = foo,
-    let bar = bar {
-    	// Indent once more to use `foo` and `bar` to show a new scope
-        foo.bizz()
-        bar.bazz()
+if let foo = foo.optionalProperty as? SomeType,
+    let bar = bars.filter({ $0.isMyBar }).first
+    { // Put the open bracket on a new line
+    foo.bizz()
+    bar.bazz()
 } else {
     // If appropriate, handle the case where the optional is nil
 }
