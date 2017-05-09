@@ -408,12 +408,14 @@ Or when unwrapping multiple optionals, prefer this:
 
 ```swift
 if let foo = foo.optionalProperty as? SomeType,
-    let bar = bars.filter({ $0.isMyBar }).first
-    { // Put the open bracket on a new line
+    let bar = bars.filter({ $0.isMyBar }).first,
+    foo.hasBizz,
+    bar.hasBazz
+{ // Put the open bracket on a new line
     foo.bizz()
     bar.bazz()
 } else {
-    // If appropriate, handle the case where the optional is nil
+    // If appropriate, handle the case where the optionals are nil
 }
 ```
 
