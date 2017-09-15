@@ -281,6 +281,31 @@ func <|<<A>(lhs: A, rhs: A) -> A
 
 **_Rationale:_** Operators consist of punctuation characters, which can make them difficult to read when immediately followed by the punctuation for a type or value parameter list. Adding whitespace separates the two more clearly.
 
+#### As Part Of Protocol Conformance
+
+When defining an operator to conform to a protocol such as `Equatable`, define it within the scope of the extension or type definition that declared the protocol conformance.
+
+##### Like this:
+```swift
+extension Person: Equatable {
+    static func == (lhs: Person, rhs: Person) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
+```
+
+###### Not this:
+
+```swift
+extension Person: Equatable { }
+
+func == (lhs: Person, rhs: Person) -> Bool {
+    return lhs.id == rhs.id
+}
+```
+
+**_Rationale:_** Better code organization, easier to tell at a glance which operator belongs to which type.
+
 ### Dictionaries
 
 When specifying the type of a dictionary, always leave one space after the colon, and no extra spaces around the brackets.
