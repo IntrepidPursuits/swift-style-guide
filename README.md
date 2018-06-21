@@ -404,6 +404,21 @@ if let foo = foo {
 }
 ```
 
+Or when unwrapping multiple optionals, prefer this:
+
+```swift
+if let foo = foo.optionalProperty as? SomeType,
+    let bar = bars.filter({ $0.isMyBar }).first,
+    foo.hasBizz,
+    bar.hasBazz { // Notice the new line between conditionals and execution code
+
+    foo.bizz()
+    bar.bazz()
+} else {
+    // If appropriate, handle the case where the optionals are nil
+}
+```
+
 **_Rationale:_** Explicit `if let`-binding of optionals results in safer code. Force unwrapping is more prone to lead to runtime crashes.
 
 ### Optional Chaining
