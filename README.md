@@ -410,8 +410,8 @@ Or when unwrapping multiple optionals, prefer this:
 if let foo = foo.optionalProperty as? SomeType,
     let bar = bars.filter({ $0.isMyBar }).first,
     foo.hasBizz,
-    bar.hasBazz
-{ // Put the open bracket on a new line
+    bar.hasBazz { // Notice the new line between conditionals and execution code
+
     foo.bizz()
     bar.bazz()
 } else {
