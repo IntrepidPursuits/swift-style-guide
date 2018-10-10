@@ -72,11 +72,11 @@ We use the [SwiftLint](https://github.com/realm/SwiftLint) library from Realm to
 
 Code should strive to be separated into meaningful chunks of functionality.  These larger chunks should be indicated by using the `// MARK: - ` keyword.
 
-Using just `//MARK: section title` inserts the `section title` into the function menu, bolding it, and giving it a unique section icon (see `View Lifecycle`).
+Using just `// MARK: section title` inserts the `section title` into the function menu, bolding it, and giving it a unique section icon (see `View Lifecycle`).
 
 ![marked section](mark.png)
 
-Adding the dash, `//MARK: - section title`, not only inserts the `section title` into the function menu, bolding it, and giving it a unique section icon but also adds a separator into the function menu (see light gray line above `View Lifecycle`). This makes it easier to identify grouped code.
+Adding the dash, `// MARK: - section title`, not only inserts the `section title` into the function menu, bolding it, and giving it a unique section icon but also adds a separator into the function menu (see light gray line above `View Lifecycle`). This makes it easier to identify grouped code.
 
 ![marked with dash section](mark-with-dash.png)
 
